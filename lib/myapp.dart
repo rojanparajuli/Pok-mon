@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => PokemonBloc(ApiService())),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Pokemon',
         home: PokemonSearchScreen(),
       ),
