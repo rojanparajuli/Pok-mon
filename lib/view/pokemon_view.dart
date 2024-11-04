@@ -4,7 +4,6 @@ import 'package:pokemon/bloc/pokemon_bloc.dart';
 import 'package:pokemon/bloc/pokemon_event.dart';
 import 'package:pokemon/bloc/pokemon_state.dart';
 
-
 class PokemonSearchScreen extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
 
@@ -43,18 +42,30 @@ class PokemonSearchScreen extends StatelessWidget {
                 if (state is PokemonLoading) {
                   return const CircularProgressIndicator();
                 } else if (state is PokemonLoaded) {
-                  // Display Pokémon data if loaded
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Name: ${state.pokemon.name}', style: const TextStyle(fontSize: 18)),
-                      Text('Height: ${state.pokemon.height}', style: const TextStyle(fontSize: 18)),
-                      Text('Weight: ${state.pokemon.weight}', style: const TextStyle(fontSize: 18)),
-                      // Add more details as desired
+                      Text('Name: ${state.pokemon.name}',
+                          style: const TextStyle(fontSize: 18)),
+                      Text('Height: ${state.pokemon.height}',
+                          style: const TextStyle(fontSize: 18)),
+                      Text('Weight: ${state.pokemon.weight}',
+                          style: const TextStyle(fontSize: 18)),
+                      Text('Abilites: ${state.pokemon.abilities}',
+                          style: const TextStyle(fontSize: 18)),
+                      Text('Type: ${state.pokemon.types}',
+                          style: const TextStyle(fontSize: 18)),
+                      Text('Moves: ${state.pokemon.moves}',
+                          style: const TextStyle(fontSize: 18)),
+                      Text('Cries: ${state.pokemon.cries}',
+                          style: const TextStyle(fontSize: 18)),
+                      Text('Past Abilites: ${state.pokemon.pastAbilities}',
+                          style: const TextStyle(fontSize: 18)),
                     ],
                   );
                 } else if (state is PokemonError) {
-                  return Text(state.message, style: const TextStyle(color: Colors.red));
+                  return Text(state.message,
+                      style: const TextStyle(color: Colors.red));
                 } else {
                   return const Text('Enter a Pokémon name to start');
                 }
