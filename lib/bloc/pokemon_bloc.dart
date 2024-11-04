@@ -1,5 +1,3 @@
-
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon/bloc/pokemon_event.dart';
 import 'package:pokemon/bloc/pokemon_state.dart';
@@ -12,12 +10,13 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
     on<SearchPokemon>((event, emit) async {
       emit(PokemonLoading());
       try {
-        final pokemon = await apiService.fetchPokemon(event.pokemonName.toLowerCase());
-        print("Pokemon data loaded: ${pokemon.name}"); 
+        final pokemon =
+            await apiService.fetchPokemon(event.pokemonName.toLowerCase());
+        print("Pokemon data loaded: ${pokemon.name}");
         emit(PokemonLoaded(pokemon));
       } catch (e) {
-        print("Error loading Pokemon: $e"); 
-        emit(const PokemonError('Could not find Pokémon'));
+        print("Error loading Pokemon: $e");
+        emit(PokemonError(e.toString()));
       }
     });
   }
