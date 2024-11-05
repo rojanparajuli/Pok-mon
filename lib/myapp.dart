@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokemon/bloc/pokemon_bloc.dart';
+import 'package:pokemon/bloc/pokemon/pokemon_bloc.dart';
+import 'package:pokemon/bloc/splash/splash_bloc.dart';
 import 'package:pokemon/service/pokemon_service.dart';
-import 'package:pokemon/view/pokemon_view.dart';
+import 'package:pokemon/view/animation/splash_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,12 +11,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => SplashBloc()),
         BlocProvider(create: (context) => PokemonBloc(ApiService())),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Pokemon',
-        home: PokemonSearchScreen(),
+        home: SplashScreen(),
       ),
     );
   }
