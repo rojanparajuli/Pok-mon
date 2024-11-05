@@ -15,7 +15,11 @@ class PokemonLoading extends PokemonState {}
 class PokemonLoaded extends PokemonState {
   final Pokemon pokemon;
 
-  const PokemonLoaded(this.pokemon);
+
+  const PokemonLoaded({
+    required this.pokemon,
+  }
+  );
 
   @override
   List<Object?> get props => [pokemon];

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:pokemon/constant/api.dart';
 import 'package:pokemon/model/pokemon_model.dart';
@@ -10,12 +12,7 @@ class ApiService {
 
     if (response.statusCode == 200) {
       if (response.body.isNotEmpty) {
-        try {
-          return pokemonFromJson(response.body);
-        } catch (e) {
-          print("Error decoding JSON: $e");
-          throw Exception('Failed to parse Pokémon data');
-        }
+          return Pokemon.fromJson(jsonDecode(response.body));
       } else {
         throw Exception('Empty response from server');
       }

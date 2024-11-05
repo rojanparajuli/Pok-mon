@@ -13,7 +13,8 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
         final pokemon =
             await apiService.fetchPokemon(event.pokemonName.toLowerCase());
         print("Pokemon data loaded: ${pokemon.name}");
-        emit(PokemonLoaded(pokemon));
+        print("pokemon image is ${pokemon.sprites?.frontShiny.toString()}");
+        emit(PokemonLoaded(pokemon: pokemon));
       } catch (e) {
         print("Error loading Pokemon: $e");
         emit(PokemonError(e.toString()));
