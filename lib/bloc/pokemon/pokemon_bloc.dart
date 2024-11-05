@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokemon/bloc/pokemon_event.dart';
-import 'package:pokemon/bloc/pokemon_state.dart';
+import 'package:pokemon/bloc/pokemon/pokemon_event.dart';
+import 'package:pokemon/bloc/pokemon/pokemon_state.dart';
 import 'package:pokemon/service/pokemon_service.dart';
 
 class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
