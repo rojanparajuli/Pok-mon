@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         body: Center(
           child: AnimatedOpacity(
             opacity: 1.0,
-            duration: const Duration(milliseconds: 800),
+            duration: const Duration(milliseconds: 2000),
             child: SizedBox.expand( 
               child: Center(
                 child: SizedBox(
